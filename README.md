@@ -12,7 +12,7 @@
 
 ## Demo
 
-https://github.com/TronMetatron/VibeVoice-RT-Bridge/raw/main/demo_video_small.mp4
+[![Demo Video](https://img.youtube.com/vi/Puy5RSJNHjU/0.jpg)](https://youtu.be/Puy5RSJNHjU)
 
 *VibeVoice TTS in Diablo 4 - Narrating game events via SAPI5*
 
