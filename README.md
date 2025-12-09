@@ -1,13 +1,72 @@
 <div align="center">
 
-## 🎙️ VibeVoice: Open-Source Frontier Voice AI
+# VibeVoice-RT-Bridge
+
+**Windows SAPI5 Bridge for Microsoft's VibeVoice Realtime TTS**
+
+[![Based on VibeVoice](https://img.shields.io/badge/Based%20on-Microsoft%20VibeVoice-blue?logo=microsoft)](https://github.com/microsoft/VibeVoice)
+[![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows)](https://www.microsoft.com/windows)
+[![SAPI5](https://img.shields.io/badge/Interface-SAPI5-green)](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ee125663(v=vs.85))
+
+</div>
+
+## What is this?
+
+This project adds **Windows SAPI5 integration** to [Microsoft's VibeVoice-Realtime-0.5B](https://github.com/microsoft/VibeVoice) model, allowing any SAPI-compatible Windows application to use VibeVoice voices for text-to-speech.
+
+**Features:**
+- SAPI5 COM DLL bridge (C++) that connects to the VibeVoice model
+- Named pipe server for efficient IPC between SAPI and Python
+- System tray app for auto-starting on Windows login
+- Installer/Manager UI for easy setup
+- 7 high-quality voices: Carter, Davis, Emma, Frank, Grace, Mike, Samuel
+
+## Architecture
+
+```
+Windows App (SAPI) --> VibeVoiceSAPI.dll --> Named Pipe --> Python Server --> VibeVoice Model (GPU)
+```
+
+## Quick Start
+
+1. **Install dependencies:**
+   ```bash
+   pip install -e .
+   ```
+
+2. **Start the SAPI server:**
+   ```bash
+   python demo/sapi_pipe_server.py --device cuda:0
+   ```
+
+3. **Run the installer** (as Administrator) to register voices:
+   ```bash
+   python sapi/install/vibevoice_installer.py
+   ```
+
+4. **Enable auto-start** (optional):
+   ```bash
+   python sapi/install/vibevoice_tray.py --add-startup
+   ```
+
+## Credits
+
+- **VibeVoice Model**: [Microsoft Research](https://github.com/microsoft/VibeVoice) - The underlying TTS model
+- **SAPI Bridge**: [TronMetatron](https://github.com/TronMetatron) - Windows SAPI5 integration, DLL, pipe server, tray app
+
+---
+
+<details>
+<summary><strong>Original VibeVoice README (click to expand)</strong></summary>
+
+<div align="center">
+
+## VibeVoice: Open-Source Frontier Voice AI
 [![Project Page](https://img.shields.io/badge/Project-Page-blue?logo=microsoft)](https://microsoft.github.io/VibeVoice)
 [![Hugging Face](https://img.shields.io/badge/HuggingFace-Collection-orange?logo=huggingface)](https://huggingface.co/collections/microsoft/vibevoice-68a2ef24a875c44be47b034f)
 [![Technical Report](https://img.shields.io/badge/Technical-Report-red?logo=adobeacrobatreader)](https://arxiv.org/pdf/2508.19205)
 
-
 </div>
-
 
 <div align="center">
 <picture>
@@ -15,26 +74,6 @@
   <img src="Figures/VibeVoice_logo.png" alt="VibeVoice Logo" width="300">
 </picture>
 </div>
-
-<div align="left">
-
-<h3>📰 News</h3>
-
-<img src="https://img.shields.io/badge/Status-New-brightgreen?style=flat" alt="New" />
-<img src="https://img.shields.io/badge/Feature-Realtime_TTS-blue?style=flat&logo=soundcharts" alt="Realtime TTS" />
-
-<strong>2025-12-03: 📣 We open-sourced <a href="docs/vibevoice-realtime-0.5b.md"><strong>VibeVoice‑Realtime‑0.5B</strong></a>, a real‑time text‑to‑speech model that supports streaming text input and robust long-form speech generation. Try it on [Colab](https://colab.research.google.com/github/microsoft/VibeVoice/blob/main/demo/vibevoice_realtime_colab.ipynb).</strong>
-
-To mitigate deepfake risks and ensure low latency for the first speech chunk, voice prompts are provided in an embedded format. For users requiring voice customization, please reach out to our team. We will also be expanding the range of available speakers.
-<br>
-
-https://github.com/user-attachments/assets/0901d274-f6ae-46ef-a0fd-3c4fba4f76dc
-
-> (Launch your own realtime demo via the websocket example in [Usage](docs/vibevoice-realtime-0.5b.md#usage-1-launch-real-time-websocket-demo)).
-
-</div>
-
-2025-09-05: VibeVoice is an open-source research framework intended to advance collaboration in the speech synthesis community. After release, we discovered instances where the tool was used in ways inconsistent with the stated intent. Since responsible use of AI is one of Microsoft’s guiding principles, we have disabled this repo until we are confident that out-of-scope use is no longer possible.
 
 
 ### Overview
@@ -115,3 +154,5 @@ Non-Speech Audio: The model focuses solely on speech synthesis and does not hand
 Overlapping Speech: The current model does not explicitly model or generate overlapping speech segments in conversations.
 
 We do not recommend using VibeVoice in commercial or real-world applications without further testing and development. This model is intended for research and development purposes only. Please use responsibly.
+
+</details>
