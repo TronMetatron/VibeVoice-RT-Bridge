@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(dir:*)",
+      "Bash(python:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(set CUDA_VISIBLE_DEVICES=1:*)",
+      "Bash(timeout 30:*)",
+      "Bash(reg query HKLMSOFTWAREMicrosoftSpeechVoicesTokens)",
+      "Bash(findstr:*)",
+      "Bash(reg query:*)",
+      "Bash(tasklist:*)",
+      "Bash(sc query VibeVoiceTTS)",
+      "Bash(sc qc:*)",
+      "Bash(net stop:*)",
+      "Bash(pip show:*)",
+      "Bash(taskkill:*)",
+      "Bash(regsvr32 /s \"E:\\oldwin_text_to_speack\\VibeVoice-RT\\sapi\\VibeVoiceSAPI\\bin\\Release\\VibeVoiceSAPI.dll\")",
+      "Bash(regsvr32:*)",
+      "Bash(dumpbin:*)",
+      "Bash(reg add \"HKCR\\CLSID\\{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}\" /ve /d \"VibeVoice TTS Engine\" /f)",
+      "Bash(reg add \"HKCR\\CLSID\\{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}\" /ve /t REG_SZ /d \"VibeVoice TTS Engine\" /f)",
+      "Bash(reg add HKCRCLSID{A1B2C3D4-E5F6-7890-ABCD-EF1234567890} /ve /t REG_SZ /d \"VibeVoice TTS Engine\" /f)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

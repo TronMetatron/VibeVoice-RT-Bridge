@@ -1,0 +1,11 @@
+; VibeVoiceSAPI.def
+; Module definition file for VibeVoice SAPI TTS Engine
+
+LIBRARY "VibeVoiceSAPI"
+
+EXPORTS
+    DllCanUnloadNow         PRIVATE
+    DllGetClassObject       PRIVATE
+    DllRegisterServer       PRIVATE
+    DllUnregisterServer     PRIVATE
+    DllInstall              PRIVATE
