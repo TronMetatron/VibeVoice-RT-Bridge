@@ -10,6 +10,12 @@
 
 </div>
 
+## Demo
+
+https://github.com/TronMetatron/VibeVoice-RT-Bridge/raw/main/demo_video_small.mp4
+
+*VibeVoice TTS in Diablo 4 - Narrating game events via SAPI5*
+
 ## What is this?
 
 This project adds **Windows SAPI5 integration** to [Microsoft's VibeVoice-Realtime-0.5B](https://github.com/microsoft/VibeVoice) model, allowing any SAPI-compatible Windows application to use VibeVoice voices for text-to-speech.
